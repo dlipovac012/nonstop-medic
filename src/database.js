@@ -14,11 +14,9 @@ const sequelize = new Sequelize({
       },
 });
 
-const models = {
-    User: require('./users/Model')(sequelize, DataTypes),
-  };
+const db = {};
   
-  models.sequelize = sequelize;
-  models.Sequelize = Sequelize;
+  db.sequelize = sequelize;
+  db.Sequelize = Sequelize;
   
-  module.exports = models;
+  module.exports = db;

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const models = require('./database');
+const database = require('./database');
 
 const { PORT = 8000 } = process.env;
 
@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({
 app.use('/api/users', require('./users/routes'));
 app.use('/api/auth', require('./auth/routes'));
 
-models.sequelize.sync({ force: false }).then(() => {
+database.sequelize.sync({ force: false }).then(() => {
     console.log('Database models synced');
-})
+});
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
-})
+});

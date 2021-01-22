@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({
 
 // Routes
 app.use('/api/users', require('./users/routes'));
+app.use('/api/auth', require('./auth/routes'));
 
 models.sequelize.sync().then(() => {
     console.log('Database models synced');

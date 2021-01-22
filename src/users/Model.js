@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     {
         username: {
             type: DataTypes.STRING,
+            allowNull: false,
             unique: true,
             validate: {
                 isAlphanumeric: true,
@@ -16,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         password: {
             type: DataTypes.STRING,
+            allowNull: false,
             validate: {
               len: {
                 args: [4, 64],
@@ -30,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
             user.password = hashedPassword;
              },
         },
+        tableName: 'users',
     });
 
     return User;

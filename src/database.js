@@ -10,6 +10,7 @@ const sequelize = new Sequelize({
         underscored: true,
         charset: 'utf8',
         timestamps: false,
+        paranoid: false,
       },
 });
 
